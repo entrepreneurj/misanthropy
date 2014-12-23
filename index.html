@@ -16,7 +16,9 @@
         line-height: 1.4;
       }
     </style>
-
+    <script type="text/javascript" src="public/index.js"></script>
+    <script type="text/javascript" src="public/questions.js"></script>
+    <script type="text/javascript" src="public/answers.js"></script>
     <script>
       var host = location.origin.replace(/^http/, 'ws')
       var ws = new WebSocket(host);
@@ -30,5 +32,6 @@
   <body>
     <h1>Pings</h1>
     <ul id='pings'></ul>
+    <script> window.onload=init;</script>
   </body>
 </html>

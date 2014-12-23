@@ -1,0 +1,23 @@
+questions = [
+	"My mother stopped talking to me after I __.",
+	"Jane is single because she has a case of __",
+	"The __ my friend is blowing in the wind...",
+	"I've got the __ like Jagger...",
+	"Talking 'bout my __...",
+	"What we've got here is failure to __...",
+	"You've got a __ in me...",
+	"We don't need no __...",
+	"You know who my hero is? __. I think we all know why...",
+	"Sometimes I look up into the sky and daydream about __.",
+	"Oh really? I didn't realise __ was so popular in the States.",
+	"You know what really reminds me of Taylor Swift? __.",
+	"Quick, it's time to release our secret weapon, __.",
+	"It's not you, it's __.",
+	"What's my dream job? __.",
+	"When I'm alone, I like to __.",
+	"Good people choose to do the right thing. Great people choose to do __.",
+	"I would have supported Barack Obama, but I didn't approve of his policy on __.",
+	"Last year my cousins came over for Christmas. The carpet still smells of __.",
+	"Last time I got on the bus I had the misfortune of sitting next to __. Never again!",
+	"I only go to Lidl when __."
+]
