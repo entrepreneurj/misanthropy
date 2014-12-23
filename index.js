@@ -9,10 +9,15 @@ app.use(express.static(__dirname + "/"))
 app.use('/static', express.static(__dirname + '/public'));
 app.use('/library', express.static(__dirname + '/public/sculpt'));
 
+
 var server = http.createServer(app)
 server.listen(port)
 
 console.log("http server listening on %d", port)
+
+// Set up room logic
+var rooms = {};
+create_room('default');
 
 var wss = new WebSocketServer({server: server})
 console.log("websocket server created")
@@ -29,3 +34,13 @@ wss.on("connection", function(ws) {
     clearInterval(id)
   })
 })
+
+function create_room(room_name) {
+  var room = {'players':[]};
+
+  rooms[room_name] = room;
+}
+
+function add_player(player,room_name) {
+    rooms[room_name].players.push(player)
+}
