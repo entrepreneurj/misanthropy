@@ -20,6 +20,14 @@ function knuthfisheryates2(arr) {
 function init() {
   questions = knuthfisheryates2(questions);
   answers = knuthfisheryates2(answers);
+
+  // Closes popup when clicked
+  $('#submit_name').click(
+    function(){
+    
+      $('#new_game_popup').popup('hide');
+    }
+  );
 }
 
 
@@ -34,5 +42,6 @@ ws.onmessage = function (event) {
 
 $(document).ready(function() {
   init();
-    return false;
+  $('#new_game_popup').popup({autoopen: true});
+  return false;
   });
