@@ -1,0 +1,236 @@
+%styledwhenchecked
+{
+display:inline-block;
+width:19px;
+height:19px;
+margin: 0 2px 0 0;
+vertical-align:middle;
+cursor: pointer;
+font-family: FontAwesome;
+@include line-height(1.9);	
+}
+
+%textboxes
+{
+@include box-sizing(border-box);
+	margin-top: 25px;
+	margin-bottom: 0;
+	margin-top: 2.5rem;
+	margin-bottom: 0;
+	display: block;
+	border: 1px solid #e7e7e7;
+	&:focus
+	{
+	background: #e7e7e7;	
+	}
+}
+
+form
+{
+margin-bottom: 25px;
+margin-bottom: 2.5rem;
+	input.column.no-margin,
+	textarea.column.no-margin
+	{
+	border: 0;
+		&.border-left
+		{
+		border-left: 1px solid #e7e7e7;	 
+		}	
+		&.border-bottom
+		{
+		border-bottom: 1px solid #e7e7e7;	 
+		} 
+		&.border-top
+		{
+		border-top: 1px solid #e7e7e7;	 
+		}	
+		&.border-right
+		{
+		border-right: 1px solid #e7e7e7;	 
+		}
+		&.border-top-left
+		{
+		border-top: 1px solid #e7e7e7;	 
+		border-left: 1px solid #e7e7e7;	 
+		}	
+		&.border-bottom-left
+		{
+		border-bottom: 1px solid #e7e7e7;
+		border-left: 1px solid #e7e7e7;		 
+		}
+		&.border-top-right
+		{
+		border-top: 1px solid #e7e7e7;	
+		border-right: 1px solid #e7e7e7; 
+		}	
+		&.border-bottom-right
+		{
+		border-bottom: 1px solid #e7e7e7;
+		border-right: 1px solid #e7e7e7;	 
+		}
+	}
+	.column.no-margin input
+	{
+	margin-top: 0;	
+	}
+}
+
+
+/*Overrides for mobile */
+
+@media only screen and (max-width : 767px) {
+	
+form
+{
+margin-bottom: 25px;
+margin-bottom: 2.5rem;
+	input.column.no-margin,
+	textarea.column.no-margin
+	{
+	border: 0;
+	margin-top: 0;
+	border-bottom: 1px solid #e7e7e7; 
+		&.border-left
+		{
+		border-left: 0;	
+		}	
+		&.border-bottom
+		{
+		border-bottom: 1px solid #e7e7e7;	 
+		} 
+		&.border-top
+		{
+		border-top: 0;
+		}	
+		&.border-right
+		{
+		border-right: 0;
+		}
+		&.border-top-left
+		{
+		border-top: 0;	 
+		border-left: 0;	
+		}	
+		&.border-bottom-left
+		{
+		border-bottom: 1px solid #e7e7e7;
+		border-left: 0;		 
+		}
+		&.border-top-right
+		{
+		border-top: 0;	
+		border-right: 0; 
+		}	
+		&.border-bottom-right
+		{
+		border-bottom: 1px solid #e7e7e7;
+		border-right: 0;	 
+		}
+	}
+		
+}	
+	
+}
+
+
+
+form.styled 
+{
+	input[type="radio"]
+	{
+		display: none;
+			& + label span
+				{
+					@extend %styledwhenchecked;
+					
+					&:before
+						{
+						content: $circle-o;
+						}
+				}
+			&:checked + label span
+				{
+					&:before
+					{
+						content: $dot-circle-o;	
+					}
+				}
+	}
+	
+	input[type="checkbox"]
+	{
+		display: none;
+			& + label span
+				{
+					@extend %styledwhenchecked;
+					
+					&:before
+						{
+						content: $square-o;	
+						}
+				}
+			&:checked + label span
+				{
+					&:before
+					{
+						content: $check-square;
+					}
+				}
+	}
+	
+	input[type="text"]
+	{
+	@extend %textboxes;
+	@include height(5);
+	@include line-height(5);
+	padding: 0 12px 0 13px;
+	padding:  0 1.25rem;
+	}
+
+textarea
+	{
+	@extend %textboxes;
+	@include height(15);
+	@include line-height(2.5);
+	padding: 12px 12px 13px 13px;
+	padding: 1.25rem;
+	resize: none;
+	}
+	
+input[type="submit"]
+{
+	border: 0;
+	@include linear-gradient(#fff, #e7e7e7);
+	border: 1px solid #e7e7e7;
+	@include height(5);
+	margin-top: 25px;
+	margin-bottom: 0;
+	margin-top: 2.5rem;
+	margin-bottom: 0;
+	color: $mid-grey;
+	border-radius: 5px;
+	&:hover {
+		 @include linear-gradient(#e7e7e7, #b3b3b3);
+		 border: 1px solid #e7e7e7;
+	}
+}
+
+input[type="text"] + label,
+textarea + label,
+legend
+{
+position: absolute !important;
+   top: -9999px !important;
+   left: -9999px !important;	
+}
+
+fieldset
+{
+padding: 0;
+margin: 0;
+border: 0;	
+}
+
+	
+}

@@ -21,3 +21,18 @@ function init() {
   questions = knuthfisheryates2(questions);
   answers = knuthfisheryates2(answers);
 }
+
+
+
+var host = location.origin.replace(/^http/, 'ws')
+var ws = new WebSocket(host);
+ws.onmessage = function (event) {
+  var li = document.createElement('li');
+  li.innerHTML = JSON.parse(event.data);
+  document.querySelector('#pings').appendChild(li);
+};
+
+$(document).ready(function() {
+  init();
+    return false;
+  });

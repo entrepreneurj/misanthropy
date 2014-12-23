@@ -1,0 +1,302 @@
+/* Buttons */
+
+.button
+{
+	display: inline-block;
+	border-radius: 5px;
+	margin: 12px 0 13px 0;
+	margin: 1.25rem 0 1.25rem;
+	@include linear-gradient(#fff, #e7e7e7);
+	border: 1px solid #e7e7e7;
+	padding: 12px 25px 13px 25px;
+	padding: 1.25rem 2.5rem 1.25rem 2.5rem;
+	@include box-sizing(border-box);
+	text-decoration: none;
+	@include font-size(1.4);
+	color: $mid-grey;
+	 &:hover {
+	 @include linear-gradient(#e7e7e7, #b3b3b3);
+	 border: 1px solid #e7e7e7;
+}
+}
+
+.button.large
+{
+	padding: 25px;
+	padding: 2.5rem;
+}
+
+.button.small
+{
+	padding: 10px 25px 10px 25px;
+	padding: 1rem 2.5rem 1rem 2.5rem;
+@include font-size(1.3);
+@include line-height(1.5);
+}
+
+.button.warning,
+.button.large.warning,
+.button.small.warning
+{
+ background: $warning-colour;
+ border: 1px solid $warning-colour-select;
+	color: #fff;
+ &:hover {
+ background: $warning-colour-select;
+ color: #fff;
+}
+}
+
+.button.success,
+.button.large.success,
+.button.small.success
+{
+ background: $success-colour;
+ border: 1px solid $success-colour-select;
+	color: #fff;
+ &:hover {
+ background: $success-colour-select;
+ color: #fff;
+}
+}
+
+.button.attention,
+.button.large.attention,
+.button.small.attention
+{
+ background: $attention-colour;
+ border: 1px solid $attention-colour-select;
+	color: #3a2500;
+ &:hover {
+ background: $attention-colour-select;
+ color: #fff;
+}
+}
+
+div.button-group
+{
+	margin: 0;
+ @include clearfix();
+	margin: 12px 0 13px 0;
+	margin: 1.25rem 0;
+	position: relative;
+}
+
+div.button-group .button,
+div.button-group .button.small
+{
+	border-left: 0;
+	border-radius: 0;
+	padding: 12px 12px 13px 13px;
+	padding: 1.25rem;
+	margin: 0;
+ &:first-of-type {
+ border-left: 1px solid #e7e7e7;
+ border-radius: 5px 0 0 5px;
+}
+}
+
+div.button-group .button.warning:first-of-type,
+div.button-group .button.small.warning:first-of-type
+{
+ border-left: 1px solid $warning-colour-select;
+	border-radius: 5px 0 0 5px;
+}
+
+div.button-group .button.success:first-of-type,
+div.button-group .button.small.success:first-of-type
+{
+ border-left: 1px solid $success-colour-select;
+	border-radius: 5px 0 0 5px;
+}
+
+div.button-group .button.attention:first-of-type,
+div.button-group .button.small.attention:first-of-type
+{
+ border-left: 1px solid $attention-colour-select;
+	border-radius: 5px 0 0 5px;
+}
+
+div.button-group .button:last-of-type
+{
+	border-radius: 0 5px 5px 0;
+}
+
+div.button-group a.button + ul
+{
+	list-style: none;
+	padding: 12px 0 13px 0;
+	padding: 1.25rem 0 1.25rem 0;
+	margin: 0;
+	border-radius: 5px;
+	border: 1px solid #e7e7e7;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 57px;
+	background: #fff;
+	z-index: 999;
+ li {
+ a {
+ padding: 0 20px;
+ padding: 0 2rem;
+ display: block;
+ text-decoration: none;
+ color: #555;
+ &:hover {
+ background: #E4E4E4;
+ color: #353535;
+}
+}
+ @include font-size(1.3);
+ @include line-height(5);
+ margin: 0;
+}
+}
+
+div.button-group a.button.small + ul
+{
+	left: 0;
+	top: 45px;
+}
+
+.button.split
+{
+padding: 0;
+span {
+padding: 12px 25px 13px 25px;
+padding: 1.25rem 2.5rem 1.25rem 2.5rem;
+float: left;
+display: block;
+text-align: center;
+}
+}
+
+
+
+.button.small.split span
+{
+	padding: 10px 25px 10px 25px;
+	padding: 1rem 2.5rem 1rem 2.5rem;
+	float: left;
+	display: block;
+}
+
+.button.split span:first-child,
+.button.small.split span:first-child
+{
+	border-right: 1px solid #e7e7e7;
+}
+
+.button.split:hover span:first-child
+{
+	border-right: 1px solid #b3b3b3;
+}
+
+.button.split.warning span:first-child
+{
+ border-right: 1px solid $warning-colour-select;
+}
+
+.button.split.warning:hover span:first-child
+{
+ border-right: 1px solid $warning-colour-select;
+}
+
+.button.split.success span:first-child
+{
+ border-right: 1px solid $success-colour-select;
+}
+
+.button.split.success:hover span:first-child
+{
+ border-right: 1px solid $success-colour-select;
+}
+
+.button.split.attention span:first-child
+{
+ border-right: 1px solid $attention-colour-select;
+}
+
+.button.split.attention:hover span:first-child
+{
+ border-right: 1px solid $attention-colour-select;
+}
+
+/* Default colours */
+
+.button.success.drop.select,
+.button.small.success.drop.select
+{
+background: $success-colour-select;
+}
+
+.button.warning.drop.select,
+.button.small.warning.drop.select
+{
+background: $warning-colour-select;
+}
+
+.button.attention.drop.select,
+.button.small.attention.drop.select
+{
+background: $attention-colour-select;
+}
+
+/*Inevitably, some mobile-only overrides will have to go here */
+
+@media only screen and (max-width : 767px) {
+
+.button.split span,
+.button.small.split span
+{
+	padding: 10px 25px 10px 25px;
+	padding: 1rem 2.5rem 1rem 2.5rem;
+	float: left;
+	display: block;
+	width:100%;
+	@include box-sizing(border-box);
+}
+
+.button.split span:first-child,
+.button.small.split span:first-child
+{
+	border-right: 0;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.button.split:hover span:first-child,
+.button.small.split:hover span:first-child,
+.button.split.success:hover span:first-child,
+.button.small.split.success:hover span:first-child,
+.button.split.warning:hover span:first-child,
+.button.small.split.warning:hover span:first-child,
+.button.split.attention:hover span:first-child,
+.button.small.split.attention:hover span:first-child
+{
+	border-right: 0;
+}
+
+.button.split.success span:first-child,
+.button.small.split.success span:first-child
+{
+	border-right: 0;
+	border-bottom: 1px solid $success-colour-select;
+}
+
+.button.split.warning span:first-child,
+.button.small.split.warning span:first-child
+{
+	border-right: 0;
+	border-bottom: 1px solid $warning-colour-select;
+}
+
+.button.split.attention span:first-child,
+.button.small.split.attention span:first-child
+{
+	border-right: 0;
+	border-bottom: 1px solid $attention-colour-select;
+}
+
+	
+}

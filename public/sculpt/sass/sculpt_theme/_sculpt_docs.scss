@@ -1,0 +1,895 @@
+$blue: #25aae1;
+$blue-dark: #005a7f; 
+$blue-light: #d1f2ff;
+
+$grey: #787878;
+$grey-dark: #1b1b1b;
+$grey-light: #e6e6e6;
+
+$orange: #cd5544;
+$orange-dark: #520a00;
+$orange-light: #ffcac2;
+
+div#toTop
+{
+position: fixed;
+right: 5%;
+bottom: -42px;
+z-index: 999999999;	
+@include transition(all 0.5s ease-in-out);
+a
+{
+height: 40px;
+background: #f9f9f7;
+border: 1px solid #dededc;
+display: inline-block;
+text-align: center;
+text-decoration: none;	
+@include line-height(4);
+@include font-size(1.3);
+color: #dededc;	
+padding: 0 10px;
+&:hover
+{
+color: #b9b9b9;
+text-decoration: none;	
+}
+}
+&.in 
+{
+	@include transform(translate3d(0,-40px,0));
+}
+}
+
+a{
+color: $blue;
+
+&:hover
+{
+	text-decoration: none;
+}
+}
+
+a.return
+{
+	position: absolute;
+	right: 0;
+	top: 73px;
+	@include font-size(1.3);
+}
+
+.example
+{
+	background: $orange;
+	color: #fff;
+&.space-top
+{
+	margin-top: 25px;
+}
+&.space-bottom
+{
+	margin-top: 25px;
+}
+&.space-both
+{
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+.example
+{
+	background: $grey;
+}
+}
+
+pre
+{
+	padding: 25px;
+}
+
+section
+{
+	border-bottom: 1px solid #dededc;
+	padding: 0 0 25px 0;
+}
+
+form.row
+{
+	clear: both;
+}
+
+
+header
+{
+	position: fixed;
+	top: -400px;
+	left: 0;
+	width: 100%;
+	height: 400px;
+	background: #454545;
+	z-index: 9999999999;
+	@include transition(all 0.5s ease);
+		&.default
+	{
+		@include transform(translate3d(0,0,0));
+	}
+	&.show
+	{
+		@include transform(translate3d(0,400px,0));
+	}
+	&.show-legacy
+	{
+		top: 0;
+	}
+	a
+	{
+	text-decoration: none;
+	padding: 0;
+	display: inline;
+	background: none;
+	border-radius: 0;
+	@include font-size(1.5);
+	@include box-sizing(border-box);
+	border: 0;
+	font-weight: $light;
+	}
+	& > a[href^="http"]
+	{
+		position: absolute;
+		top: 10px;
+		left: 10%;
+	}
+
+	& > h2
+	{
+		position: absolute;
+		top: 20px;
+		left: 10%;
+		margin: 0 0 0 10px;
+		padding: 0;
+		@include font-size(1.6);
+		@include letter-spacing(-0.1);
+		font-weight: $regular;
+		font-style: normal;
+		color: #efefef;
+		font-family: "OpenSans";
+	}
+}
+
+a#show-menu
+{
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	bottom: -60px;
+	right: 20px;
+	background: #454545;
+	border-radius: 0;
+	border: 0;
+	padding: 0;
+	overflow: visible;
+		z-index: 9999999999;
+	span{
+			position: absolute;
+			left: -99999px;
+	}
+	&:after
+	{
+		content: $bars;
+		color: #fff;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		@include font-size(2);
+		line-height: 60px;
+		font-family: "FontAwesome";
+		text-align: center;
+	}
+}
+
+div#header-strip
+{
+	width: 100%;
+	height: 60px;
+	background: #252525;
+	position:fixed;
+	top: 0;
+		z-index: 999999999;
+		@include line-height(4);
+		color: #fff;
+		a
+	{
+	text-decoration: none;
+	padding: 0;
+	display: inline;
+	background: none;
+	border-radius: 0;
+	@include font-size(1.5);
+	@include box-sizing(border-box);
+	border: 0;
+	font-weight: $light;
+	}
+}
+
+nav
+{
+	position: absolute;
+	height: 70%;
+	left: 10%;
+	top: 20%;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	h3 {
+		padding: 0;
+	}
+	ul
+	{
+		list-style: none;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 0
+	}
+	li{
+
+		position: relative;
+	}
+
+	p 
+	{
+		margin: 0;
+		padding: 0;
+	}
+	a
+	{
+		color: #fff;
+		padding: 10px 10px 10px 50px;
+		@include box-sizing(border-box);
+		display: block;
+		font-weight: $regular;
+				border-top: 1px solid #484848;
+				border-bottom: 1px solid #4c4c4c;
+	
+				span
+		{
+			content: "";
+			display: block;
+			width: 16px;
+			height: 16px;
+			position: absolute;
+			left: 5px;
+			top: 50%;
+			margin-top: -16px;
+			padding: 5px;
+			background-size: 14px;
+			background-position: 6px 6px;
+			background-repeat: no-repeat;
+			border-radius: 50%;
+
+		}
+		&.domain-names
+		{
+			span
+				{
+					background-image: url(../images/documentation/icon-hosting.png);
+					background-color: #1082AA; 
+				}
+			
+		}
+		&.web-hosting
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-cloud.png); 
+				background-color: #009966;
+			}
+		}
+
+		&.reseller-hosting
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-reseller.png);
+				background-color: #85b140; 
+			}
+		}
+
+		&.vps
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-vps.png);
+				background-color: #1c5681; 
+			}
+		}
+
+		&.hybrid-server
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-hybrid-grey.png); 
+				background-color: #1c5681;
+			}
+		}
+
+		&.dedicated-server
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-dedicated.png); 
+				background-color: #1c5681;
+				background-size: 14px;
+				background-position: 6px 5px;
+
+			}
+		}
+
+		&.website-builder
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-sitedesigner.png);
+				background-color: #993366; 
+			}
+		}
+
+		&.mobile-website-builder
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-mobile.png); 
+				background-color: #993366; 
+			}
+		}
+		&.sitedesigner
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-sitedesigner-screen.png);
+				background-color: #993366; 
+			}
+		}
+
+		&.search-engine-submission
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-seo-grey.png);
+				background-color: #5FC6B5; 
+			}	
+		}
+
+		&.website-security
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-web-security.png); 
+				background-color: #942424;
+			}
+	}
+
+		&.email-hosting
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-email.png); 
+				background-color: #d7761a;
+			}			
+		}
+	}
+}
+
+footer
+{
+	width: 100%;
+	background: #252525;
+	@include line-height(1.8);
+	@include font-size(1.2);
+	padding: 25px 0;
+	color: #fff;
+	a{
+		color: $blue;
+		&:hover
+		{
+			text-decoration: none;
+		}
+	}
+}
+
+
+h1
+{
+	padding-top: 100px;
+	@include letter-spacing(-0.2);
+	& + h3
+	{
+		@include letter-spacing(-0.1);
+	}
+}
+
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+
+header
+{
+	top: -270px;
+	height: 270px;
+
+	&.show
+	{
+		@include transform(translate3d(0,270px,0));
+	}
+
+	& > a[href^="http"]
+	{
+		position: absolute;
+		top: 10px;
+		left: auto;
+		right: 50%;
+		margin-right: -366px;
+	}
+
+	& > h2
+	{
+		position: absolute;
+		top: 20px;
+		left: 50%;
+		margin-left: -362px;
+		@include font-size(2);
+		color: #efefef;
+	}
+}
+
+nav
+{
+	left: 50%;
+	top: 70px;
+	margin-left: -366px!important;
+	overflow: hidden;
+li { padding: 5px;
+		position: relative;
+	}
+	a{
+		background: #454545;
+		border: 1px solid #fff;
+		color: #fff;
+		display: block;
+		padding: 10px;
+		@include font-size(1);
+		@include transition(0.5s all ease);
+		&:hover
+		{
+			background: #454545;
+			border: 1px solid #fff;
+			color: #fff;
+			@include transition(0.5s all ease);
+		}
+		span
+		{
+			content: "";
+			display: block;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			left: auto;
+			right: 15px;
+			top: 50%;
+			margin-top: -16px;
+			padding: 5px;
+			background-size: 16px;
+			background-position: 7px 7px;
+			background-repeat: no-repeat;
+			border-radius: 50%;
+
+		}
+		&.domain-names
+		{
+			span
+				{
+					background-image: url(../images/documentation/icon-hosting.png);
+					background-color: #1082AA; 
+				}
+			
+		}
+		&.web-hosting
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-cloud.png); 
+				background-color: #009966;
+			}
+		}
+
+		&.reseller-hosting
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-reseller.png);
+				background-color: #85b140; 
+			}
+		}
+
+		&.vps
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-vps.png);
+				background-color: #1c5681; 
+			}
+		}
+
+		&.hybrid-server
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-hybrid-grey.png); 
+				background-color: #1c5681;
+			}
+		}
+
+		&.dedicated-server
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-dedicated.png); 
+				background-color: #1c5681;
+				background-size: 15px;
+				background-position: 8px 7px;
+			}
+		}
+
+		&.website-builder
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-sitedesigner.png);
+				background-color: #993366; 
+			}
+		}
+
+		&.mobile-website-builder
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-mobile.png); 
+				background-color: #993366; 
+			}
+		}
+		&.sitedesigner
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-sitedesigner-screen.png);
+				background-color: #993366; 
+			}
+		}
+
+		&.search-engine-submission
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-seo-grey.png);
+				background-color: #5FC6B5; 
+			}	
+		}
+
+		&.website-security
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-web-security.png); 
+				background-color: #942424;
+			}
+	}
+
+		&.email-hosting
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-email.png); 
+				background-color: #d7761a;
+			}			
+		}
+	}
+
+}
+
+a#show-menu
+{
+	right: 50%;
+	margin-right: -366px;
+}
+	
+}
+
+
+@media only screen and (min-width : 1025px) {
+
+header
+{
+	top: -270px;
+	height: 270px;
+
+	&.show
+	{
+		@include transform(translate3d(0,270px,0));
+	}
+
+	& > a[href^="http"]
+	{
+		position: absolute;
+		top: 10px;
+		left: auto;
+		right: 50%;
+		margin-right: -570px;
+	}
+
+	& > h2
+	{
+		position: absolute;
+		top: 20px;
+		left: 50%;
+		margin-left: -565px;
+		@include font-size(2);
+		@include letter-spacing(-0.1);
+		color: #efefef;
+	}
+}
+
+nav
+{
+	top: 70px!important;
+	li { padding: 5px;
+		position: relative;
+	}
+	a{
+		background: #454545;
+		border: 1px solid #fff;
+		color: #fff;
+		display: block;
+		padding: 10px;
+		@include font-size(1.3);
+		@include transition(0.5s all ease);
+		&:hover
+		{
+			background: #454545;
+			border: 1px solid #fff;
+			color: #fff;
+			@include transition(0.5s all ease);
+		}
+		span
+		{
+			content:"";
+			display: block;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			right: 20px;
+			left: auto;
+			top: 50%;
+			margin-top: -14px;
+			background-size: 17px;
+			background-position: 7px 6px;
+		}
+
+		&.domain-names
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-hosting-grey.png); 
+				background-color: transparent;
+			}
+			&:hover
+			{
+				background: #1082AA;
+				span
+				{
+					background-image: url(../images/documentation/icon-hosting.png); 
+				}
+			}
+			
+		}
+		&.web-hosting
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-cloud-grey.png); 
+				background-color: transparent;
+			}
+			&:hover
+			{
+				background: #009966;
+				span
+				{
+					background-image: url(../images/documentation/icon-cloud.png); 
+				}
+			}
+			
+		}
+
+		&.reseller-hosting
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-reseller-grey.png); 
+				background-color: transparent;
+			}
+			&:hover
+			{
+				background: #85b140;
+				span
+				{
+					background-image: url(../images/documentation/icon-reseller.png); 
+				}
+			}
+			
+		}
+
+		&.vps
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-vps-grey.png); 
+				background-color: transparent;
+			}
+			&:hover
+			{
+				background: #1c5681;
+				span
+				{
+					background-image: url(../images/documentation/icon-vps.png); 
+				}
+			}
+			
+		}
+
+		&.hybrid-server
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-hybrid-grey.png); 
+				background-color: transparent;
+			}
+			&:hover
+			{
+				background: #1c5681;
+				span
+				{
+					background-image: url(../images/documentation/icon-hybrid.png); 
+				}
+			}
+			
+		}
+
+		&.dedicated-server
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-dedicated-grey.png);
+				background-color: transparent;
+				background-size: 16px;
+				background-position: 7px 6px; 
+			}
+			&:hover
+			{
+				background: #1c5681;
+				span
+				{
+					background-image: url(../images/documentation/icon-dedicated.png); 
+				}
+			}
+			
+		}
+
+		&.website-builder
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-sitedesigner-grey.png); 
+				background-color: transparent;
+			}
+			&:hover
+			{
+				background: #993366;
+				span
+				{
+					background-image: url(../images/documentation/icon-sitedesigner.png); 
+				}
+			}
+			
+		}
+
+		&.mobile-website-builder
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-mobile-grey.png); 
+				background-color: transparent;
+			}
+			&:hover
+			{
+				background: #993366;
+				span
+				{
+					background-image: url(../images/documentation/icon-mobile.png); 
+				}
+			}
+			
+		}
+		&.sitedesigner
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-sitedesigner-screen-grey.png); 
+				background-color: transparent;
+			}
+			&:hover
+			{
+				background: #993366;
+				span
+				{
+					background-image: url(../images/documentation/icon-sitedesigner-screen.png); 
+				}
+			}
+			
+		}
+
+		&.search-engine-submission
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-seo-grey.png); 
+				background-color: transparent;
+			}
+			&:hover
+			{
+				background: #5FC6B5;
+				span
+				{
+					background-image: url(../images/documentation/icon-seo.png); 
+				}
+			}
+			
+		}
+
+		&.website-security
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-web-security-grey.png); 
+				background-color: transparent;
+			}
+			&:hover
+			{
+				background: #942424;
+				span
+				{
+					background-image: url(../images/documentation/icon-web-security.png); 
+				}
+			}
+			
+		}
+
+		&.email-hosting
+		{
+			span
+			{
+				background-image: url(../images/documentation/icon-email-grey.png); 
+				background-color: transparent;
+			}
+			&:hover
+			{
+				background: #d7761a;
+				span
+				{
+					background-image: url(../images/documentation/icon-email.png); 
+				}
+			}
+			
+		}
+	}
+	overflow: hidden;
+	left: 50%;
+	margin-left: -570px!important;	
+}
+
+}

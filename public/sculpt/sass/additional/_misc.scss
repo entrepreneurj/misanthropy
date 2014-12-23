@@ -1,0 +1,219 @@
+ // Additional bits and pieces to help you get started
+
+// Simple Colour Variables
+	$light : #e7e7e7;
+	$medium : #555;
+	$dark: #333;
+
+
+// Basic header styling for your page title and nav, dark grey links with some funky hover effects like in the demo
+
+
+
+header.styled {
+	border-bottom: 1px dashed $medium;
+
+	h1,h2 {
+		padding-bottom: 3.25rem;
+	}
+
+	a {
+		color: #121212;
+		text-decoration: none;
+	}
+
+	nav {
+		padding: 6rem 0 2.75rem 0;
+	}
+	
+}
+
+// Drop Down Styling
+
+ul.styled {
+
+	a {
+		color: #121212;
+		text-decoration: none;
+
+		&:hover {
+			border-bottom: 6px solid $medium;
+			color: $medium;
+		}
+	}
+
+	
+
+		ul {
+			background-color: #fff;
+			-webkit-border-bottom-right-radius: 5px;
+			-webkit-border-bottom-left-radius: 5px;
+			-moz-border-radius-bottomright: 5px;
+			-moz-border-radius-bottomleft: 5px;
+			border-bottom-right-radius: 5px;
+			border-bottom-left-radius: 5px;
+			border: 1px solid $light;
+			
+			li {
+				&:hover {
+				background: $light;
+					}
+				ul {
+					
+				}
+			}
+
+		}
+
+}
+
+ul.drop-down {
+	
+// First Level Styling
+		
+
+
+		li {
+			list-style: none;
+			
+			position: relative;
+			text-align: left;
+
+			
+
+				&:hover > ul{
+					display: block;
+
+				}
+
+				a {
+					
+					padding: 0 0 1.50rem 0;
+
+				}
+
+// Second Level Styling
+				ul{
+					display:none;
+					float: left;
+					position: absolute;
+					background: #fff;
+					margin: 10px 0 0 0;
+					padding: 0;
+					z-index: 999;
+		
+
+					&:hover {
+						display:block;
+					}
+
+						li{
+							float: none;
+							margin: 0;
+							padding: 0;
+
+							a {
+								display: block;
+								width: 150px;
+								padding:15px 20px;
+
+								&:hover {
+									border: none;
+								}
+
+							} 
+							
+						}
+				}
+
+						ul ul {
+							left: 100%;
+							top: 0px;
+							}
+		}
+
+
+	
+
+
+	
+
+
+}
+
+
+@media only screen and (max-width : 767px) {
+	header.styled ul {
+		float:none !important;
+		margin: 0 auto;
+		padding: 0 0 2.75rem 0;
+		
+		li {
+			padding: 0rem 0px 2.50rem 0;
+		}
+	}
+}
+
+// Horizontal Lists
+
+// If you want to give lists some basic horizontal styling (great for menus!) simply apply the .horizontal class to the ul or ol 
+
+
+ul.horizontal {
+	li {
+		float: left;
+		margin-right: 40px;		
+	}
+}
+
+
+// Make your images funky and circular with .styled
+
+
+img.styled {
+		border-radius: 50%;
+		width: 150px;
+		height: 150px;
+		margin: 0 auto;
+	}
+
+
+//some basic styling for your footer links
+
+footer.styled {
+	background: $dark;
+	color: #fff;
+
+	section {
+		padding: 3rem 0 3rem 0;
+
+			a {
+				color: $light;
+				text-decoration: none;
+				
+
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+
+		ul li {
+			list-style: none;
+			position: relative;
+			line-height: 26px;
+		}
+	}
+
+	h4 {
+		color: #fff;
+
+	}
+	section.copyright {
+		font-size: 14px;
+		background: #111;
+		padding: 1.50rem 0 1.50rem 0;
+	}
+
+
+}
+

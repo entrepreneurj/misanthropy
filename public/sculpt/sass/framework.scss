@@ -1,0 +1,1392 @@
+
+@import 'bourbon/bourbon';
+@import 'additional/variables';
+@import 'additional/additional';
+@import 'additional/type';
+
+html
+{
+font-size: $base-size-mobile;
+}
+
+/* Here come the columns */
+
+.container
+{
+	margin: 0 auto;
+	@include clearfix();
+	width: $container-mobile;
+}
+
+/* Clearfixed elements */
+
+section,
+.row
+{
+@include clearfix();
+position: relative;
+}
+
+
+.column
+{
+	margin-left: 0;
+	margin-right: 0;
+	@include box-sizing(border-box);
+	position: relative;
+	/* When nesting columns, this removed the margins on the left of the first and the right of the last columns */
+	
+	.row .column:first-of-type
+	{
+		margin-left: 0;
+	}
+	.row .column:last-of-type
+	{
+		margin-right: 0;
+	}
+	
+}
+
+
+.one
+{
+width: $one-mobile;
+}
+
+.two
+{
+width: $one-mobile;
+}
+
+.three
+{
+width: $one-mobile;
+}
+
+.four
+{
+width: $one-mobile;
+}
+
+.five
+{
+width: $one-mobile;
+}
+
+.six
+{
+width: $one-mobile;
+}
+
+.seven
+{
+width: $one-mobile;
+}
+
+.eight
+{
+width: $one-mobile;
+}
+
+.nine
+{
+width: $one-mobile;
+}
+
+.ten
+{
+width: $one-mobile;
+}
+
+.eleven
+{
+width: $one-mobile;
+}
+
+.twelve
+{
+width: $one-mobile;
+}
+
+/* Default typeface and weight declarations */
+
+body
+{
+font-family: $regular-type;
+@include font-size(1.6);
+@include line-height(2.5);
+	color: #353535;
+}
+
+p
+{
+	margin: 0;
+	padding: 7px 0 18px;
+	padding: 0.75rem 0 1.75rem;
+}
+
+/* This resets the h tags before we do anything else to them */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+@include font-size(1.6);
+@include line-height(2.5);
+	margin: 0;
+	padding: 0;
+font-weight: $regular;
+}
+
+h1
+{
+@include font-size(5);
+@include line-height(5);
+	margin: 0;
+	padding: 35px 0 15px;
+	padding: 3.5rem 0 1.5rem;
+font-weight: $extrabold;
+}
+
+h2
+{
+@include font-size(4);
+@include line-height(5);
+	margin: 0;
+	padding: 38px 0 12px;
+	padding: 3.75rem 0 1.25rem;
+font-weight: $bold;
+}
+
+h3
+{
+@include font-size(3);
+@include line-height(4);
+	margin: 0;
+	padding: 45px 0 15px;
+	padding: 4.5rem 0 1.5rem;
+font-weight: $semibold;
+}
+
+h4
+{
+@include font-size(2);
+@include line-height(3);
+	margin: 0;
+	padding: 10px 0 10px;
+	padding: 1rem 0 1rem;
+font-weight: $semibold;
+}
+
+nav h1 {
+	float: left;
+}
+
+h1 + h2
+{
+	padding: 13px 0 12px;
+	padding: 1.25rem 0 1.25rem;
+}
+
+h1 + h3
+{
+	padding: 0 0 10px;
+	padding: 0 0 1rem;
+}
+
+h2 + h3
+{
+	padding: 0 0 10px;
+	padding: 0 0 1rem;
+}
+
+h3 + h4
+{
+	padding: 0 0 10px;
+	padding: 0 0 1rem;
+}
+
+/* Basic imagery fun here */
+
+div img[data-responsive="fill"],
+article img[data-responsive="fill"],
+aside.img[data-responsive="fill"]
+{
+min-width: 100%;
+max-width: 100%;
+height: auto;	
+}
+
+/* This resets ol and ul lists before we do anything with them */
+
+ol,
+ul
+{
+	margin: 0;
+	list-style: none;
+	padding: 12px 0 13px;
+	padding: 1.25rem 0;
+}
+
+/*Now we style the basics */
+
+ul
+{
+	list-style: disc;
+	padding: 12px 0 13px 25px;
+	padding: 1.25rem 0 1.25rem 2.5rem;
+}
+
+ul ul
+{
+	list-style: circle;
+	padding: 12px 0 13px 25px;
+	padding: 1.25rem 0 1.25rem 2.5rem;
+	font-size: 1.4rem;
+}
+
+ol
+{
+	list-style: decimal;
+	padding: 12px 0 13px 25px;
+	padding: 1.25rem 0 1.25rem 2.5rem;
+}
+
+ol ol
+{
+	list-style: lower-latin;
+	padding: 12px 0 13px 25px;
+	padding: 1.25rem 0 1.25rem 2.5rem;
+	font-size: 1.4rem;
+}
+
+/* Some floats*/
+
+
+.left {
+	float: left;
+	text-align: left;
+}
+
+.right {
+	float: right;
+	text-align: right;
+}
+
+
+@media only screen and  (max-width : 767px) {
+.hide-mobile
+{
+	display: none;
+}
+
+.left, .right {
+	text-align: left !important;
+	clear: both !important;
+}
+}
+
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+
+html
+{
+font-size: $base-size-732;
+}
+
+/* Here come the columns */
+
+.container
+{
+margin: 0 auto;
+width: $container-732;
+&.fluid
+{
+@include fluid();	 
+}
+&.fluid.no-margin
+{
+@include fluid-no-margin();	 
+}
+}
+
+.column
+{
+margin-left: $margin-732;
+margin-right: $margin-732;
+float: left;
+
+}
+
+.one
+{
+width: $one-732;
+}
+
+.push-one
+{
+margin-left: ($margin-732*3)+$one-732;	
+}
+
+.pull-one
+{
+margin-right: ($margin-732*3)+$one-732;	
+}
+
+.two
+{
+width: $two-732;
+}
+
+.push-two
+{
+margin-left: ($margin-732*3)+$two-732;	
+}
+
+.pull-two
+{
+margin-right: ($margin-732*3)+$two-732;	
+}
+
+.three
+{
+width: $three-732;
+}
+
+.push-three
+{
+margin-left: ($margin-732*3)+$three-732;	
+}
+
+.pull-three
+{
+margin-right: ($margin-732*3)+$three-732;	
+}
+
+.four
+{
+width: $four-732;
+}
+
+.push-four
+{
+margin-left: ($margin-732*3)+$four-732;	
+}
+
+.pull-four
+{
+margin-right: ($margin-732*3)+$four-732;	
+}
+
+.five
+{
+width: $five-732;
+}
+
+.push-five
+{
+margin-left: ($margin-732*3)+$five-732;	
+}
+
+.pull-five
+{
+margin-right: ($margin-732*3)+$five-732;	
+}
+
+.six
+{
+width: $six-732;
+}
+
+.push-six
+{
+margin-left: ($margin-732*3)+$six-732;	
+}
+
+.pull-six
+{
+margin-right: ($margin-732*3)+$six-732;	
+}
+
+.seven
+{
+width: $seven-732;
+}
+
+.push-seven
+{
+margin-left: ($margin-732*3)+$seven-732;	
+}
+
+.pull-seven
+{
+margin-right: ($margin-732*3)+$seven-732;	
+}
+
+.eight
+{
+width: $eight-732;
+}
+
+.push-eight
+{
+margin-left: ($margin-732*3)+$eight-732;	
+}
+
+.pull-eight
+{
+margin-right: ($margin-732*3)+$eight-732;	
+}
+
+.nine
+{
+width: $nine-732;
+}
+
+.push-nine
+{
+margin-left: ($margin-732*3)+$nine-732;	
+}
+
+.pull-nine
+{
+margin-right: ($margin-732*3)+$nine-732;	
+}
+
+.ten
+{
+width: $ten-732;
+}
+
+.push-ten
+{
+margin-left: ($margin-732*3)+$ten-732;	
+}
+
+.pull-ten
+{
+margin-right: ($margin-732*3)+$ten-732;	
+}
+
+.eleven
+{
+width: $eleven-732;
+}
+
+.push-eleven
+{
+margin-left: ($margin-732*3)+$eleven-732;	
+}
+
+.pull-eleven
+{
+margin-right: ($margin-732*3)+$eleven-732;	
+}
+
+.twelve
+{
+width: $twelve-732;
+}
+
+/* Columns with no margins */
+
+.column.no-margin
+{
+margin: 0;
+float: left;
+&.one
+{
+width: 	($margin-732*2)+$one-732;
+}
+&.two
+{
+width: 	($margin-732*2)+$two-732;
+}
+&.three
+{
+width: 	($margin-732*2)+$three-732;
+}
+&.four
+{
+width: 	($margin-732*2)+$four-732;
+}
+&.five
+{
+width: 	($margin-732*2)+$five-732;
+}
+&.six
+{
+width: 	($margin-732*2)+$six-732;
+}
+&.seven
+{
+width: 	($margin-732*2)+$seven-732;
+}
+&.eight
+{
+width: 	($margin-732*2)+$eight-732;
+}
+&.nine
+{
+width: 	($margin-732*2)+$nine-732;
+}
+&.ten
+{
+width: 	($margin-732*2)+$ten-732;
+}
+&.eleven
+{
+width: 	($margin-732*2)+$eleven-732;
+}
+&.one
+{
+width: 	($margin-732*2)+$twelve-732;
+}
+}
+
+/* Default typeface and weight declarations */
+
+/* Buttons */
+
+
+.hide-tablet
+{
+	display: none;
+}
+
+.hide-mobile
+{
+	display: block;
+}
+
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+html
+{
+font-size: $base-size-960;
+}
+
+/* Here come the columns */
+
+.container
+{
+margin: 0 auto;
+width: $container-960;
+&.fluid
+{
+@include fluid();	 
+}
+&.fluid.no-margin
+{
+@include fluid-no-margin();	 
+}
+}
+
+.column
+{
+margin-left: $margin-960;
+margin-right: $margin-960;
+float: left;
+}
+
+.one
+{
+width: $one-960;
+}
+
+.push-one
+{
+margin-left: ($margin-960*3)+$one-960;	
+}
+
+.pull-one
+{
+margin-right: ($margin-960*3)+$one-960;	
+}
+
+.two
+{
+width: $two-960;
+}
+
+.push-two
+{
+margin-left: ($margin-960*3)+$two-960;	
+}
+
+.pull-two
+{
+margin-right: ($margin-960*3)+$two-960;	
+}
+
+.three
+{
+width: $three-960;
+}
+
+.push-three
+{
+margin-left: ($margin-960*3)+$three-960;	
+}
+
+.pull-three
+{
+margin-right: ($margin-960*3)+$three-960;	
+}
+
+.four
+{
+width: $four-960;
+}
+
+.push-four
+{
+margin-left: ($margin-960*3)+$four-960;	
+}
+
+.pull-four
+{
+margin-right: ($margin-960*3)+$four-960;	
+}
+
+.five
+{
+width: $five-960;
+}
+
+.push-five
+{
+margin-left: ($margin-960*3)+$five-960;	
+}
+
+.pull-five
+{
+margin-right: ($margin-960*3)+$five-960;	
+}
+
+.six
+{
+width: $six-960;
+}
+
+.push-six
+{
+margin-left: ($margin-960*3)+$six-960;	
+}
+
+.pull-six
+{
+margin-right: ($margin-960*3)+$six-960;	
+}
+
+.seven
+{
+width: $seven-960;
+}
+
+.push-seven
+{
+margin-left: ($margin-960*3)+$seven-960;	
+}
+
+.pull-seven
+{
+margin-right: ($margin-960*3)+$seven-960;	
+}
+
+.eight
+{
+width: $eight-960;
+}
+
+.push-eight
+{
+margin-left: ($margin-960*3)+$eight-960;	
+}
+
+.pull-eight
+{
+margin-right: ($margin-960*3)+$eight-960;	
+}
+
+.nine
+{
+width: $nine-960;
+}
+
+.push-nine
+{
+margin-left: ($margin-960*3)+$nine-960;	
+}
+
+.pull-nine
+{
+margin-right: ($margin-960*3)+$nine-960;	
+}
+
+.ten
+{
+width: $ten-960;
+}
+
+.push-ten
+{
+margin-left: ($margin-960*3)+$ten-960;	
+}
+
+.pull-ten
+{
+margin-right: ($margin-960*3)+$ten-960;	
+}
+
+.eleven
+{
+width: $eleven-960;
+}
+
+.push-eleven
+{
+margin-left: ($margin-960*3)+$eleven-960;	
+}
+
+.pull-eleven
+{
+margin-right: ($margin-960*3)+$eleven-960;	
+}
+
+.twelve
+{
+width: $twelve-960;
+}
+
+/* Columns with no margins */
+
+.column.no-margin
+{
+margin: 0;
+float: left;
+&.one
+{
+width: 	($margin-960*2)+$one-960;
+}
+&.two
+{
+width: 	($margin-960*2)+$two-960;
+}
+&.three
+{
+width: 	($margin-960*2)+$three-960;
+}
+&.four
+{
+width: 	($margin-960*2)+$four-960;
+}
+&.five
+{
+width: 	($margin-960*2)+$five-960;
+}
+&.six
+{
+width: 	($margin-960*2)+$six-960;
+}
+&.seven
+{
+width: 	($margin-960*2)+$seven-960;
+}
+&.eight
+{
+width: 	($margin-960*2)+$eight-960;
+}
+&.nine
+{
+width: 	($margin-960*2)+$nine-960;
+}
+&.ten
+{
+width: 	($margin-960*2)+$ten-960;
+}
+&.eleven
+{
+width: 	($margin-960*2)+$eleven-960;
+}
+&.one
+{
+width: 	($margin-960*2)+$twelve-960;
+}
+}
+
+/* Default typeface and weight declarations */
+
+/* Buttons */
+
+}
+
+@media only screen and (min-width : 1024px) {
+
+html
+{
+font-size: $base-size-960;
+}
+
+/* Here come the columns */
+
+.container
+{
+	margin: 0 auto;
+width: $container-960;
+&.fluid
+{
+@include fluid();	 
+} 
+&.fluid.no-margin
+{
+@include fluid-no-margin();	 
+}
+}
+
+.column
+{
+margin-left: $margin-960;
+margin-right: $margin-960;
+float: left;
+}
+
+.one
+{
+width: $one-960;
+}
+
+.push-one
+{
+margin-left: ($margin-960*3)+$one-960;	
+}
+
+.pull-one
+{
+margin-right: ($margin-960*3)+$one-960;	
+}
+
+.two
+{
+width: $two-960;
+}
+
+.push-two
+{
+margin-left: ($margin-960*3)+$two-960;	
+}
+
+.pull-two
+{
+margin-right: ($margin-960*3)+$two-960;	
+}
+
+.three
+{
+width: $three-960;
+}
+
+.push-three
+{
+margin-left: ($margin-960*3)+$three-960;	
+}
+
+.pull-three
+{
+margin-right: ($margin-960*3)+$three-960;	
+}
+
+.four
+{
+width: $four-960;
+}
+
+.push-four
+{
+margin-left: ($margin-960*3)+$four-960;	
+}
+
+.pull-four
+{
+margin-right: ($margin-960*3)+$four-960;	
+}
+
+.five
+{
+width: $five-960;
+}
+
+.push-five
+{
+margin-left: ($margin-960*3)+$five-960;	
+}
+
+.pull-five
+{
+margin-right: ($margin-960*3)+$five-960;	
+}
+
+.six
+{
+width: $six-960;
+}
+
+.push-six
+{
+margin-left: ($margin-960*3)+$six-960;	
+}
+
+.pull-six
+{
+margin-right: ($margin-960*3)+$six-960;	
+}
+
+.seven
+{
+width: $seven-960;
+}
+
+.push-seven
+{
+margin-left: ($margin-960*3)+$seven-960;	
+}
+
+.pull-seven
+{
+margin-right: ($margin-960*3)+$seven-960;	
+}
+
+.eight
+{
+width: $eight-960;
+}
+
+.push-eight
+{
+margin-left: ($margin-960*3)+$eight-960;	
+}
+
+.pull-eight
+{
+margin-right: ($margin-960*3)+$eight-960;	
+}
+
+.nine
+{
+width: $nine-960;
+}
+
+.push-nine
+{
+margin-left: ($margin-960*3)+$nine-960;	
+}
+
+.pull-nine
+{
+margin-right: ($margin-960*3)+$nine-960;	
+}
+
+.ten
+{
+width: $ten-960;
+}
+
+.push-ten
+{
+margin-left: ($margin-960*3)+$ten-960;	
+}
+
+.pull-ten
+{
+margin-right: ($margin-960*3)+$ten-960;	
+}
+
+.eleven
+{
+width: $eleven-960;
+}
+
+.push-eleven
+{
+margin-left: ($margin-960*3)+$eleven-960;	
+}
+
+.pull-eleven
+{
+margin-right: ($margin-960*3)+$eleven-960;	
+}
+
+.twelve
+{
+width: $twelve-960;
+}
+
+/* Columns with no margins */
+
+.column.no-margin
+{
+margin: 0;
+float: left;
+&.one
+{
+width: 	($margin-960*2)+$one-960;
+}
+&.two
+{
+width: 	($margin-960*2)+$two-960;
+}
+&.three
+{
+width: 	($margin-960*2)+$three-960;
+}
+&.four
+{
+width: 	($margin-960*2)+$four-960;
+}
+&.five
+{
+width: 	($margin-960*2)+$five-960;
+}
+&.six
+{
+width: 	($margin-960*2)+$six-960;
+}
+&.seven
+{
+width: 	($margin-960*2)+$seven-960;
+}
+&.eight
+{
+width: 	($margin-960*2)+$eight-960;
+}
+&.nine
+{
+width: 	($margin-960*2)+$nine-960;
+}
+&.ten
+{
+width: 	($margin-960*2)+$ten-960;
+}
+&.eleven
+{
+width: 	($margin-960*2)+$eleven-960;
+}
+&.one
+{
+width: 	($margin-960*2)+$twelve-960;
+}
+
+.hide-desktop
+{
+	display: none;
+} 
+
+.hide-mobile
+{
+	display: block; 
+}
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width : 1175px) {
+
+html
+{
+font-size: $base-size-1140;
+}
+
+/* Here come the columns */
+
+.container
+{
+	margin: 0 auto;
+width: $container-1140;
+&.fluid
+{
+@include fluid();	 
+} 
+&.fluid.no-margin
+{
+@include fluid-no-margin();	 
+}
+}
+
+.column
+{
+margin-left: $margin-1140;
+margin-right: $margin-1140;
+float: left;
+}
+
+.one
+{
+width: $one-1140;
+}
+
+.push-one
+{
+margin-left: ($margin-1140*3)+$one-1140;	
+}
+
+.pull-one
+{
+margin-right: ($margin-1140*3)+$one-1140;	
+}
+
+.two
+{
+width: $two-1140;
+}
+
+.push-two
+{
+margin-left: ($margin-1140*3)+$two-1140;	
+}
+
+.pull-two
+{
+margin-right: ($margin-1140*3)+$two-1140;	
+}
+
+.three
+{
+width: $three-1140;
+}
+
+.push-three
+{
+margin-left: ($margin-1140*3)+$three-1140;	
+}
+
+.pull-three
+{
+margin-right: ($margin-1140*3)+$three-1140;	
+}
+
+.four
+{
+width: $four-1140;
+}
+
+.push-four
+{
+margin-left: ($margin-1140*3)+$four-1140;	
+}
+
+.pull-four
+{
+margin-right: ($margin-1140*3)+$four-1140;	
+}
+
+.five
+{
+width: $five-1140;
+}
+
+.push-five
+{
+margin-left: ($margin-1140*3)+$five-1140;	
+}
+
+.pull-five
+{
+margin-right: ($margin-1140*3)+$five-1140;	
+}
+
+.six
+{
+width: $six-1140;
+}
+
+.push-six
+{
+margin-left: ($margin-1140*3)+$six-1140;	
+}
+
+.pull-six
+{
+margin-right: ($margin-1140*3)+$six-1140;	
+}
+
+.seven
+{
+width: $seven-1140;
+}
+
+.push-seven
+{
+margin-left: ($margin-1140*3)+$seven-1140;	
+}
+
+.pull-seven
+{
+margin-right: ($margin-1140*3)+$seven-1140;	
+}
+
+.eight
+{
+width: $eight-1140;
+}
+
+.push-eight
+{
+margin-left: ($margin-1140*3)+$eight-1140;	
+}
+
+.pull-eight
+{
+margin-right: ($margin-1140*3)+$eight-1140;	
+}
+
+.nine
+{
+width: $nine-1140;
+}
+
+.push-nine
+{
+margin-left: ($margin-1140*3)+$nine-1140;	
+}
+
+.pull-nine
+{
+margin-right: ($margin-1140*3)+$nine-1140;	
+}
+
+.ten
+{
+width: $ten-1140;
+}
+
+.push-ten
+{
+margin-left: ($margin-1140*3)+$ten-1140;	
+}
+
+.pull-ten
+{
+margin-right: ($margin-1140*3)+$ten-1140;	
+}
+
+.eleven
+{
+width: $eleven-1140;
+}
+
+.push-eleven
+{
+margin-left: ($margin-1140*3)+$eleven-1140;	
+}
+
+.pull-eleven
+{
+margin-right: ($margin-1140*3)+$eleven-1140;	
+}
+
+.twelve
+{
+width: $twelve-1140;
+}
+
+/* Columns with no margins */
+
+.column.no-margin
+{
+margin: 0;
+float: left;
+&.one
+{
+width: 	($margin-1140*2)+$one-1140;
+}
+&.two
+{
+width: 	($margin-1140*2)+$two-1140;
+}
+&.three
+{
+width: 	($margin-1140*2)+$three-1140;
+}
+&.four
+{
+width: 	($margin-1140*2)+$four-1140;
+}
+&.five
+{
+width: 	($margin-1140*2)+$five-1140;
+}
+&.six
+{
+width: 	($margin-1140*2)+$six-1140;
+}
+&.seven
+{
+width: 	($margin-1140*2)+$seven-1140;
+}
+&.eight
+{
+width: 	($margin-1140*2)+$eight-1140;
+}
+&.nine
+{
+width: 	($margin-1140*2)+$nine-1140;
+}
+&.ten
+{
+width: 	($margin-1140*2)+$ten-1140;
+}
+&.eleven
+{
+width: 	($margin-1140*2)+$eleven-1140;
+}
+&.one
+{
+width: 	($margin-1140*2)+$twelve-1140;
+}
+
+.hide-desktop
+{
+	display: none;
+} 
+
+.hide-mobile
+{
+	display: block; 
+}
+
+}
+
+
+}
+
+
+
+
+
+
+@import 'additional/buttons';
+@import 'additional/misc';
+@import 'additional/forms';

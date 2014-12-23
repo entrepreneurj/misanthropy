@@ -7,6 +7,7 @@ var port = process.env.PORT || 5000
 app.use(express.static(__dirname + "/"))
 
 app.use('/static', express.static(__dirname + '/public'));
+app.use('/library', express.static(__dirname + '/public/sculpt'));
 
 var server = http.createServer(app)
 server.listen(port)
