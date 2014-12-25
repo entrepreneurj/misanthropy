@@ -23,15 +23,12 @@ var wss = new WebSocketServer({server: server})
 console.log("websocket server created")
 
 wss.on("connection", function(ws) {
-  var id = setInterval(function() {
-    ws.send(JSON.stringify(new Date()), function() {  })
-  }, 1000)
 
   console.log("websocket connection open")
 
   ws.on("close", function() {
     console.log("websocket connection close")
-    clearInterval(id)
+
   })
 
   ws.on('message', function(data, flags) {
@@ -69,12 +66,13 @@ function create_room(room_name) {
 
 function add_player(player,room_name, connection) {
     rooms[room_name].players[player] = connection
-    announce_player(player,room_name)
+    announce_player(player,rooms[room_name])
 }
 
-function announce_player(new_player, room_name) {
-  Object.keys(rooms[room_name].players).forEach(function (player) {
-      console.log(rooms[room_name].players[player]);
+function announce_player(new_player, room) {
+  Object.keys(room.players).forEach(function (player) {
+      console.log("Sending "+ player +" announcement about "+new_player);
+      room.players[player].send(JSON.stringify(new_player+ " has joined the game"))
   });
 }
 
