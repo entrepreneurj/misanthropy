@@ -44,9 +44,9 @@ wss.on("connection", function(ws) {
       case "new_player":
         var room_name = data['body']['room'];
         // check to see if msg is valid
-        if ( room_name && room_name in rooms && rooms[room_name].active==false) {
+        if ( room_name && room_name in rooms && rooms[room_name].active == false) {
           // add player to room
-          add_player(data["player"],data['body']['room']);
+          add_player(data["player"],data['body']['room'], ws);
           console.log("added player '" + data["player"] + "' to room #" + data['body']['room']  );
           console.log(rooms[room_name])
           break;
@@ -62,11 +62,18 @@ wss.on("connection", function(ws) {
 
 
 function create_room(room_name) {
-  var room = {'players':[], 'active': false};
+  var room = {'players':{}, 'active': false};
 
   rooms[room_name] = room;
 }
 
-function add_player(player,room_name) {
-    rooms[room_name].players.push(player)
+function add_player(player,room_name, connection) {
+    rooms[room_name].players[player] = connection
+    announce_player(player,room_name)
+}
+
+function announce_player(new_player, room_name) {
+  Object.keys(rooms[room_name].players).forEach(function (player) {
+      console.log(rooms[room_name].players[player]);
+  });
 }
