@@ -26,7 +26,7 @@ function init() {
     function(){
 
       $('#new_game_popup').popup('hide');
-      name = $('#name').attr("value");
+      name = $('#name').val();
         // for now we only use the default room
         ws.send(create_response("new_player",{"room":'default'}));
     }
