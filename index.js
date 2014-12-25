@@ -23,15 +23,12 @@ var wss = new WebSocketServer({server: server})
 console.log("websocket server created")
 
 wss.on("connection", function(ws) {
-  var id = setInterval(function() {
-    ws.send(JSON.stringify(new Date()), function() {  })
-  }, 1000)
 
   console.log("websocket connection open")
 
   ws.on("close", function() {
     console.log("websocket connection close")
-    clearInterval(id)
+
   })
 
   ws.on('message', function(data, flags) {
@@ -44,9 +41,9 @@ wss.on("connection", function(ws) {
       case "new_player":
         var room_name = data['body']['room'];
         // check to see if msg is valid
-        if ( room_name && room_name in rooms && rooms[room_name].active==false) {
+        if ( room_name && room_name in rooms && rooms[room_name].active == false) {
           // add player to room
-          add_player(data["player"],data['body']['room']);
+          add_player(htmlEntities(data["player"]),htmlEntities(data['body']['room']), ws);
           console.log("added player '" + data["player"] + "' to room #" + data['body']['room']  );
           console.log(rooms[room_name])
           break;
@@ -62,11 +59,23 @@ wss.on("connection", function(ws) {
 
 
 function create_room(room_name) {
-  var room = {'players':[], 'active': false};
+  var room = {'players':{}, 'active': false};
 
   rooms[room_name] = room;
 }
 
-function add_player(player,room_name) {
-    rooms[room_name].players.push(player)
+function add_player(player,room_name, connection) {
+    rooms[room_name].players[player] = connection
+    announce_player(player,rooms[room_name])
+}
+
+function announce_player(new_player, room) {
+  Object.keys(room.players).forEach(function (player) {
+      console.log("Sending "+ player +" announcement about "+new_player);
+      room.players[player].send(JSON.stringify(new_player+ " has joined the game"))
+  });
+}
+
+function htmlEntities(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
