@@ -46,7 +46,7 @@ wss.on("connection", function(ws) {
         // check to see if msg is valid
         if ( room_name && room_name in rooms && rooms[room_name].active == false) {
           // add player to room
-          add_player(data["player"],data['body']['room'], ws);
+          add_player(htmlEntities(data["player"]),htmlEntities(data['body']['room']), ws);
           console.log("added player '" + data["player"] + "' to room #" + data['body']['room']  );
           console.log(rooms[room_name])
           break;
@@ -76,4 +76,8 @@ function announce_player(new_player, room_name) {
   Object.keys(rooms[room_name].players).forEach(function (player) {
       console.log(rooms[room_name].players[player]);
   });
+}
+
+function htmlEntities(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
