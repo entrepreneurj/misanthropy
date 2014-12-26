@@ -42,9 +42,20 @@ function create_response(msg_type, data) {
 var host = location.origin.replace(/^http/, 'ws')
 var ws = new WebSocket(host);
 ws.onmessage = function (event) {
+
+  var msg = JSON.parse(event.data);
+  if (msg.type == "players") {
+      msg.body.forEach(function (player) {
+        var li = document.createElement('li');
+        li.innerHTML = player +" is playing";
+        document.querySelector('#pings').appendChild(li);
+      });
+  }
+  else{
   var li = document.createElement('li');
-  li.innerHTML = JSON.parse(event.data);
+  li.innerHTML = msg;
   document.querySelector('#pings').appendChild(li);
+ }
 };
 
 

@@ -65,17 +65,32 @@ function create_room(room_name) {
 }
 
 function add_player(player,room_name, connection) {
+    // Sends list of existing players to new player
+    connection.send(create_response(room_name, "players", Object.keys(rooms[room_name].players)))
+
+    // Adds new player
     rooms[room_name].players[player] = connection
-    announce_player(player,rooms[room_name])
+
+    // Informs everybody (including new player) about new player
+    announce_player(player,room_name)
 }
 
-function announce_player(new_player, room) {
+function announce_player(new_player, room_name) {
+  var room = rooms[room_name]
   Object.keys(room.players).forEach(function (player) {
       console.log("Sending "+ player +" announcement about "+new_player);
       room.players[player].send(JSON.stringify(new_player+ " has joined the game"))
   });
 }
 
+// Structres messages to client
+function create_response(room_name, msg_type, data) {
+  return JSON.stringify(
+  {'room': room_name,'type': msg_type, 'body': data }
+);
+}
+
+// Source: http://css-tricks.com/snippets/javascript/htmlentities-for-javascript
 function htmlEntities(str) {
   return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
