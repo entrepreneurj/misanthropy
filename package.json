@@ -13,6 +13,7 @@
     "node": "0.10.x"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "mocha test"
   }
 }
