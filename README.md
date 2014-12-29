@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/entrepreneurj/misanthropy.png?label=ready&title=Ready)](https://waffle.io/entrepreneurj/misanthropy)
 # Misanthropy
 [![Build Status](https://travis-ci.org/entrepreneurj/misanthropy.svg?)](https://travis-ci.org/entrepreneurj/misanthropy)
 [![Coverage Status](https://coveralls.io/repos/entrepreneurj/misanthropy/badge.png?branch=misanthropy)](https://coveralls.io/r/entrepreneurj/misanthropy?branch=misanthropy)
