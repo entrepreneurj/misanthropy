@@ -17,9 +17,10 @@
   "scripts": {
     "start": "node index.js",
     "lint": "jshint **.js; true",
-    "test": "mocha test"
+    "test": "./node_modules/.bin/istanbul test _mocha -- test"
   },
   "devDependencies": {
+    "istanbul": "^0.3.5",
     "sinon": "^1.12.2",
     "sinon-chai": "^2.6.0"
   }
