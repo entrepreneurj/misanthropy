@@ -44,10 +44,7 @@ describe("game", function() {
     // First object sent to connection was player data
     expect(dummy_connection.result[0]).to.eql(JSON.parse(utils.create_response("default","players", [])));
   });
-    it("should have sent the player a message about themselves joining the room", function() {
-    // Second connection to be sent to conn was new_player data
-    expect(dummy_connection.result[1]).to.eql('Tom has joined the game');
-  });
+    
 
   });
 

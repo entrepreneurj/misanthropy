@@ -102,14 +102,13 @@ describe("sockets", function() {
 		var sockets = Sockets(server);
 
 
-		it('should log a message when a new player is added', function(done) {
+		describe('should log a message when a new player is added', function(done) {
 			var ws = new WebSocket("ws://localhost:9999");
 			this.timeout(5000);
 			ws.on('open', function() {
 			//	console.log("sending data to server");
 			ws.on('message',function(data, flags){
 
-				console.log("client websocket gets message");
 
 
 				//console.log(spy);
@@ -118,9 +117,10 @@ describe("sockets", function() {
 
 				// done();
 				var parsed_data = JSON.stringify(data);
-				console.log(parsed_data);
 				if (parsed_data.indexOf("joined the game") > -1){
+					it("should log 'new player'", function() {
 					expect(spy.getCall(1).args[0]).to.contain("new_player");
+					});
 					//console.log(data, flags, done);
 					ws.close();
 				}
@@ -136,11 +136,11 @@ describe("sockets", function() {
 			//
 			});
 			//ws.close(1000,"Test purposes", true);
-			ws.on('close', function() {
+			//ws.on('close', function() {
 
-				done();
+		//		done();
 
-			});
+		//	});
 
 
 			//console.log(console.log.getCall(1));
@@ -149,6 +149,10 @@ describe("sockets", function() {
 
 
 		});
+		it("should have sent the player a message about themselves joining the room")//, function() {
+			// Second connection to be sent to conn was new_player data
+			//	expect(dummy_connection.result[1]).to.eql('Tom has joined the game');
+		//});
 	});
 
 
