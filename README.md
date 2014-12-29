@@ -1,5 +1,6 @@
 # Misanthropy
 [![Build Status](https://travis-ci.org/entrepreneurj/misanthropy.svg?)](https://travis-ci.org/entrepreneurj/misanthropy)
+[![Coverage Status](https://img.shields.io/coveralls/entrepreneurj/misanthropy.svg)](https://coveralls.io/r/entrepreneurj/misanthropy)
 
 An online version of Cards Against Humanity, using NodeJS.
 
