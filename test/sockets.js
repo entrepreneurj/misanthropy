@@ -136,7 +136,11 @@ describe("sockets", function() {
 			//
 			});
 			//ws.close(1000,"Test purposes", true);
+			ws.on('close', function() {
 
+				done();
+
+			});
 
 
 			//console.log(console.log.getCall(1));
